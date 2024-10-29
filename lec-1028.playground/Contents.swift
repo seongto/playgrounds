@@ -45,7 +45,13 @@ var myArr:[String] = ["Swift", "SwiftUI", "SwiftUIKit"]
 
 myArr.append("SwiftVisionKit")
 myArr.insert("SwiftX", at: 0)
+
 print(myArr)
+
+var arr2 = myArr.sorted()
+var arr3 = myArr.sorted()
+print(arr2[0])
+
 
 
 // if guard 다중 조건 테스트
@@ -72,6 +78,49 @@ var dict:[String:Int] = [
 
 dict.removeValue(forKey: "aNum")
 
-
 print(dict)
 
+
+// 함수 매개변수 클로저 테스트
+print("---------- 함수 매개변수 클로저 테스트 ----------")
+var playWithDog = {
+    print("Fetch!")
+}
+func play(_ playType: () -> Void) -> String {
+    print("Let's play a game")
+    playType()
+    return "bark"
+}
+
+play( playWithDog)
+
+
+
+// 푸드파이트 대회 코드
+func solution(_ food:[Int]) -> String {
+    var table:String = "0"
+    
+    var cooked:[Int] = food
+    cooked.removeFirst()
+    cooked.reverse()
+        
+    for (idx, v) in cooked.enumerated() {
+        var dishNum:Int = v/2
+        var dishOrder:Int = cooked.count - idx
+        
+        for i in 1...dishNum {
+            table = String(dishOrder) + table + String(dishOrder)
+        }
+    }
+    
+    return table
+}
+
+print(solution([1,3,8,5,2]))
+
+
+
+var myArr2:[Int] = [1,3,8,5,2]
+var testResult:Any = myArr2.removeLast()
+
+print(testResult)
