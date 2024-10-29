@@ -5,8 +5,12 @@ import UIKit
 let emptyString: String = ""
 
 
-print( emptyString == nil ) //Comparing non-optional value of type 'String' to 'nil' always returns false
-
 let nilArr: [Any?] = [nil]
 
 print(nilArr.isEmpty)
+
+
+var myArr2:[Int] = [1,3,8,5,2]
+var testResult:Any = myArr2.removeLast()
+
+print(testResult)
