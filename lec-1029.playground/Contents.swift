@@ -61,3 +61,21 @@ print(arr2)
 
 print("hello")
 
+
+// 클로저 내부 캡쳐링 테스트
+func makeIncrementer(incrementAmount: Int) -> () -> Int {
+    var total = 0
+    let incrementer: () -> Int = {
+        total += incrementAmount
+        return total
+    }
+    return incrementer
+}
+
+let incrementByTwo = makeIncrementer(incrementAmount: 2)
+incrementByTwo() // 2
+incrementByTwo() // 4
+
+
+
+
